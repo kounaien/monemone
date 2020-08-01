@@ -1,0 +1,35 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.my-page-header{
+    background-color: white;
+    padding: 30px;
+    border-bottom: solid 1px gray;
+    .my-profile{
+        text-align: center;
+    }
+}
+
+.my-content{
+    background-color: white;
+}
+
+.edit-block{
+    background-color: white;
+    border: solid 1px gray;
+    border-radius:3px;
+     .block-sidebar{
+        padding: 15px;
+        text-align: center;
+        border-right: solid 1px gray;
+    }
+    .edit-bar{
+        padding: 15px;
+        .user{
+            margin-bottom: 10px;
+        }
+        .field{
+            margin-bottom: 20px;
+        }
+    }
+}

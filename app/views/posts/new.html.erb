@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-8 offset-2">
+        <div class="form-post-style">
+            <div class="form-header">
+                <h1>新規投稿</h1>
+            </div>
+
+            <div class="post-body">
+                <%= form_for(@post) do |f| %>
+                <%= render 'layouts/error_messages', model: f.object %>
+                    <p>
+                        <%= f.label(:image, "画像", class: "text-color") %>
+                        <%= f.attachment_field :image %>
+                    </p>
+                    <p>
+                        <%= f.label(:caption, "説明文", class: "text-color") %>
+                        <%= f.text_area :caption, class: "form-control" %>
+                    </p>  
+                    <p>
+                        <%= f.label(:fee, "使った金額", class: "text-color") %>
+                        <%= f.number_field :fee, class: "form-control", size: "8x1" %>円
+                    </p>
+                    <p>
+                        <%= f.submit "送信", class: "origin-btn" %>
+                    </p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

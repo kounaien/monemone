@@ -1,0 +1,41 @@
+<header class="navbar fixed-top">
+    <div class="container">
+        <nav class="nav navbar-dark navbar-left">
+            <%= link_to(posts_path) do %>
+                <span id="monemone">MoneMone</span>
+            <% end %>
+        </nav>
+        <nav class="navbar-dark navbar-right">
+            <ul class="nav">
+                <% if user_signed_in? %>
+                    <li>
+                        <%= link_to destroy_user_session_path, method: :delete do %>
+                            <i class="fas fa-sign-out-alt"></i>ログアウト
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to user_path(current_user.id) do %>
+                            <i class="far fa-user"></i>マイページ
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to new_post_path do %>
+                            <i class="fab fa-monero"></i>Mone
+                        <% end %>
+                    </li>
+                <% else %>
+                    <li>
+                        <%= link_to new_user_registration_path do %>
+                            <i class="fas fa-user-plus"></i>新規登録
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to new_user_session_path do %>
+                            <i class="fas fa-sign-in-alt"></i>ログイン
+                        <% end %>
+                    </li>
+                <% end %>
+            </ul>
+        </nav>
+    </div>
+</header>

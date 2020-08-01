@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+*{
+    margin: 0;
+    padding: 0;
+ }
+
+ ul{
+     list-style: none;
+ }
+
+ body{
+     background-color: #f7f7f7;
+ }
+
+ #monemone{
+     font-size: 25px;
+     vertical-align: center;
+ }
+
+ body{
+     padding: 10px;
+    a{
+        color: black;
+    }
+    a:hover{
+        color: black;
+        text-decoration: none;
+    }
+ }
+
+ p{
+    overflow-wrap: break-word;   
+ }
+
+header{
+    background-color: white;
+    border-bottom: solid 1px lightgray;
+    a {
+        color: #03695f;
+    }
+    li{
+        padding-right: 10px;
+        font-size: 16px;
+    }
+}
+
+.content{
+    margin-top: 100px;
+}
+
+.form-user-style, .form-post-style{
+    background-color: white;
+    padding: 70px;
+    border: solid 2px white;
+    border-radius: 15px;
+}
+
+.origin-btn{
+    margin: 5px 0;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #03695f;
+    border: solid 2px #03695f;
+    border-radius: 3px;
+    background-color: transparent;
+    text-align: center;
+    vertical-align: center;
+    font-size: 14px;
+}
+.origin-btn:hover{
+    color: white;
+    background-color: #03695f;
+}
+
+.form-header{
+    text-align: center;
+}
+
+.rounded-image{
+    border: solid 2px lightgray;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.comment-text{
+    padding-left: 30px;
+    vertical-align: center;
+}
+
+.favorite{
+    margin-bottom: 10px;
+}
+
+
