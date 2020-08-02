@@ -1,7 +1,7 @@
 <header class="navbar fixed-top">
     <div class="container">
         <nav class="nav navbar-dark navbar-left">
-            <%= link_to(posts_path) do %>
+            <%= link_to posts_path(posts: "following_posts") do %>
                 <span id="monemone">MoneMone</span>
             <% end %>
         </nav>
@@ -16,6 +16,11 @@
                     <li>
                         <%= link_to user_path(current_user.id) do %>
                             <i class="far fa-user"></i>マイページ
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to posts_path(posts: "recommend") do %>
+                            <i class="fas fa-crown">オススメ</i>
                         <% end %>
                     </li>
                     <li>

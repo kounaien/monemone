@@ -11,7 +11,18 @@
                             <%= link_to "",  edit_user_path(@user), class: "fas fa-cog" %>
                         <% end %>
                     </div>
-                </div>
+                    <span>
+                        <%= link_to user_followes_path(@user) do %>
+                        フォロー<%= @user.follower.count %>
+                        <% end %>
+                    </span>
+                    <span>
+                        <%= link_to user_followers_path(@user) do %>
+                        フォロワー<%= @user.followed.count %>
+                        <% end %>
+                    </span>
+                    <%= render 'relationships/follow_btn', user: @user %>
+                    </div>
             </div>
 
             <div class="my-content">

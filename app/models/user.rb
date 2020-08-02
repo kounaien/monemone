@@ -9,4 +9,22 @@ class User < ApplicationRecord
          has_many :favorites, dependent: :destroy
 
          attachment :profile_image
+
+         #following association
+         has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy #フォローしている人を限定していない
+         has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #foreign_keyで検索できるようにしている
+         has_many :following_user, through: :follower, source: :followed #名前が違うrelationshipを参照している
+         has_many :follower_user, through: :followed, source: :follower #テーブル作成する際にforeign_key使用
+
+         def follow(user_id)
+          follower.create(followed_id: user_id)
+         end
+
+         def unfollow(user_id)
+          follower.find_by(followed_id: user_id).destroy
+         end
+
+         def following?(user)
+          following_user.include?(user)
+         end
 end
