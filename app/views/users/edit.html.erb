@@ -16,7 +16,7 @@
                     <%= @user.name %>
                 </div>
                 <div class="edit-form">
-                    <%= form_for(@user) do |f| %>
+                    <%= form_with(model: @user, local: true) do |f| %>
                         <div class="field">
                             <%= f.label :プロフィール写真を更新 %>
                             <%= f.attachment_field :profile_image %>

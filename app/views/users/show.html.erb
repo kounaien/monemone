@@ -21,7 +21,8 @@
                         フォロワー<%= @user.followed.count %>
                         <% end %>
                     </span>
-                </div>
+                    <%= render 'relationships/follow_btn', user: @user %>
+                    </div>
             </div>
 
             <div class="my-content">
