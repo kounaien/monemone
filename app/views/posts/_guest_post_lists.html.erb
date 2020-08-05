@@ -1,0 +1,30 @@
+<% posts.each do |post| %>
+    <div class="block">
+        <div class="block-header">
+            <span>
+                <%= link_to user_path(post.user_id) do %>
+                    <%= attachment_image_tag post.user, :profile_image, size: '50x50', fallback: "no_image.jpg", class: "rounded-image" %>
+                    <%= post.user.name %>
+                <% end %>
+            </span>
+        </div>
+        <div class="block-image">
+            <%= link_to post_path(post.id) do %>
+                <%= attachment_image_tag post, :image, size: '100x100', fallback: "no_image.jpg" %>
+            <% end %>
+        </div>
+        <div class="block-content">
+            <div class="caption">
+                <p><%= post.caption %></p>
+                <p><%= post.fee %>円</p>
+            </div>
+            <section>
+                <span>
+                    <i class="far fa-heart"></i>
+                    <%= post.favorites.count %>
+                </span>
+                <span><%= post.post_comment.count %>件のコメント</span>
+            </section>
+        </div>        
+    </div>
+<% end %>

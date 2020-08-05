@@ -21,7 +21,9 @@ class PostsController < ApplicationController
         if params[:posts] == "following_posts"
             @follow_users = current_user.following_user
             @posts = Post.where(user_id: @follow_users).order(created_at: :desc)
-        else params[:posts] == "recommend"
+        elsif params[:posts] == "recommend"
+            @posts = Post.page(params[:page]).per(10).order(created_at: :desc)
+        else
             @posts = Post.page(params[:page]).per(10).order(created_at: :desc)
         end        
     end
