@@ -1,20 +1,19 @@
-<% if user_signed_in? %>
-    <% if @posts.blank? %>
-        <h1>ようこそmonemoneへ</h1>
-        <p>まず初めに誰かフォローしましょう</p>
-    <% else %>
-        <div class="row">
-            <div class="col-8 offset-2">
-                <div id="post_list">
-                    <% if @posts.any? %>
-                        <%= render 'post_list', posts: @posts %> 
-                    <% end %>      
-                </div>
-                <div class="more">
-                    <%# <%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'view_more' %> %>
-                </div>
-            </div>
+ <div class="row">
+    <div class="col-8 offset-2">
+        <div id="post_list">
+            <% if user_signed_in? %> 
+                <% if @posts.any? %>
+                    <%= render 'post_lists', posts: @posts %>
+                <% else %>
+                    <h2>ここにフォローしたユーザが表示されます</h2>
+                <% end %>
+            <% else %>
+                    <h2>sign upでフォローしましょう</h2>
+                    <%= render 'guest_post_lists', posts: @posts %>
+            <% end %>      
         </div>
-    <% end %>
-<% end %>
-
+        <div class="more">
+            <%# <%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'view_more' %> %>
+        </div>
+    </div>
+</div>

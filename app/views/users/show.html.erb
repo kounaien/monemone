@@ -26,14 +26,19 @@
             </div>
 
             <div class="my-content">
-                <ul class="nav nav-tabs justify-content-center ">
-                    <li class="nav-item">
-                        <%= link_to "投稿", posts_path, class: "nav-link active" %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "グラフ", posts_path, class: "nav-link" %>
-                    </li>
-                </ul>
+                <nav>
+                    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-post-tab" data-toggle="tab" href="#nav-post" role="tab" aria-controls="nav-post" aria-selected="true">投稿</a>
+                            <a class="nav-item nav-link" id="nav-guraph-tab" data-toggle="tab" href="#nav-guraph" role="tab" aria-controls="nav-guraph" aria-selected="false">グラフ</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="nav-post" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <%= render 'users/users_posts', posts: @posts %>
+                    </div>
+                    <div class="tab-pane fade" id="nav-guraph" role="tabpanel" aria-labelledby="nav-guraph-tab">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
