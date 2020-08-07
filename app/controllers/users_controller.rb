@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
     def show
         @posts = @user.posts.all
+        @count_by_date = Post.for_date_range(Post.first.created_at, Post.last.created_at).count_by_date
     end
 
     def edit
