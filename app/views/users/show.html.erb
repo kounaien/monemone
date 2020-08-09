@@ -38,7 +38,9 @@
                         <%= render 'users/users_posts', posts: @posts %>
                     </div>
                     <div class="tab-pane fade" id="nav-guraph" role="tabpanel" aria-labelledby="nav-guraph-tab">
-                        <%= render 'users/guraph', count_sum: @count_sum %>
+                        <% if @posts.any? %>
+                            <%= render 'users/guraph', count_sum: @count_sum %>
+                        <% end %>
                     </div>
                 </div>
             </div>

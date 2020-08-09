@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function() {
     data: {
         labels: JSON.parse(ctx.dataset.label),
         datasets: [{
-            label: 'posts fee',
+            label: '円',
             data:JSON.parse(ctx.dataset.data),
             backgroundColor: "rgba(10, 100, 10, 0.1)",
             borderColor: "rgba(10, 150, 10, 1)",
