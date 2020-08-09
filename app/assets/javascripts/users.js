@@ -6,10 +6,10 @@ $(document).on('turbolinks:load', function() {
     var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: JSON.parse(ctx.dataset.label),
         datasets: [{
             label: 'posts fee',
-            data: [12, 19, 3, 5, 2, 3],
+            data:JSON.parse(ctx.dataset.data),
             borderWidth: 1
         }]
     },
