@@ -4,13 +4,15 @@ class UsersController < ApplicationController
 
     def show
         @posts = @user.posts.all
-        @count_sum = Post.for_date_range(Post.first.created_at, Post.last.created_at).count_sum
-        total = 0
-        @count_sum.each do |key, value|
-            total += value
+        if @posts.any?
+            @count_sum = @user.posts.for_date_range(@user.posts.first.created_at, @user.posts.last.created_at).count_sum
+            total = 0
+            @count_sum.each do |key, value|
+                total += value
+            end
+            @count_sum["合計"] = total
         end
-        @count_sum["合計"] = total
-        end
+    end
 
     def edit
     end
