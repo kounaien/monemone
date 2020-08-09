@@ -10,6 +10,8 @@ $(document).on('turbolinks:load', function() {
         datasets: [{
             label: 'posts fee',
             data:JSON.parse(ctx.dataset.data),
+            backgroundColor: "rgba(10, 100, 10, 0.1)",
+            borderColor: "rgba(10, 150, 10, 1)",
             borderWidth: 1
         }]
     },
