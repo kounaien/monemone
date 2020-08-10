@@ -10,7 +10,7 @@ class UsersController < ApplicationController
             @count_sum.each do |key, value|
                 total += value
             end
-            @count_sum["合計"] = total
+            @count_sum["#{Date.today}までの"] = total
         end
     end
 
