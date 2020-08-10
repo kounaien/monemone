@@ -25,3 +25,23 @@
     }
 }
 }
+
+.more{
+    text-align: center;
+}
+
+#view_more{
+    display: inline-block;
+    background-color: #fff;
+    margin: 10px auto;
+    padding: 7px 20px;
+    border-radius: 25px;
+    border: solid 2px  #03695f;
+    font-weight: bold;
+    transition: .3s;
+    color: #03695f;
+}
+#view_more:hover{
+    background-color: #0e5f49;
+    color: white;
+}

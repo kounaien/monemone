@@ -3,7 +3,12 @@
         <div id="post_list">
             <% if user_signed_in? %> 
                 <% if @posts.any? %>
-                    <%= render 'post_lists', posts: @posts %>
+                    <div id="post_lists">
+                        <%= render 'post_lists', posts: @posts %>
+                    </div>
+                    <div class="more">
+                        <%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'view_more' %>
+                    </div>
                 <% else %>
                     <h2>ここにフォローしたユーザの投稿が表示されます</h2>
                 <% end %>
@@ -11,9 +16,6 @@
                     <h2>sign upでフォローしましょう</h2>
                     <%= render 'guest_post_lists', posts: @posts %>
             <% end %>      
-        </div>
-        <div class="more">
-            <%# <%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'view_more' %> %>
         </div>
     </div>
 </div>

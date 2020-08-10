@@ -20,11 +20,11 @@ class PostsController < ApplicationController
     def index
         if params[:posts] == "following_posts"
             @follow_users = current_user.following_user
-            @posts = Post.where(user_id: @follow_users).order(created_at: :desc)
+            @posts = Post.where(user_id: @follow_users).or(Post.where(user_id: current_user)).page(params[:page])
         elsif params[:posts] == "recommend"
-            @posts = Post.page(params[:page]).per(10).order(created_at: :desc)
+            @posts = Post.where.not(user_id: current_user.id).page(params[:page])
         else
-            @posts = Post.page(params[:page]).per(10).order(created_at: :desc)
+            @posts = Post.page(params[:page])
         end        
     end
 
