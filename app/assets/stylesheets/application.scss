@@ -36,7 +36,6 @@
  }
 
  body{
-     padding: 10px;
     a{
         color: black;
     }
@@ -53,21 +52,31 @@
 header{
     background-color: white;
     border-bottom: solid 1px lightgray;
-    a {
+    #monemone{
         color: #03695f;
     }
+    a {
+        color: #03695f;
+    } 
     li{
-        padding-right: 10px;
         font-size: 16px;
     }
+    .nav-link {
+        color: rgba(17, 155, 70, 0.5);
+    }
+    #form{
+        text-align: center;
+    }
 }
+
+
 
 footer{
     margin-top: 20px;
 }
 
 .content{
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .form-user-style, .form-post-style{

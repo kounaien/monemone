@@ -1,52 +1,67 @@
-<header class="navbar fixed-top">
-    <div class="container">
-        <nav class="nav navbar-dark navbar-left">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
             <% if user_signed_in? %>
-                <%= link_to posts_path(posts: "following_posts") do %>
+                <%= link_to posts_path(posts: "following_posts"), { class: "navbar-brand"} do %>
                     <span id="monemone">MoneMone</span>
                 <% end %>
             <% else %>
-                <%= link_to posts_path do %>
+                <%= link_to posts_path, { class: "navbar-brand"} do %>
                     <span id="monemone">MoneMone</span>
                 <% end %>
             <% end %>
-        </nav>
-        <nav class="navbar-dark navbar-right">
-            <ul class="nav">
-                <% if user_signed_in? %>
-                    <li>
-                        <%= link_to destroy_user_session_path, method: :delete do %>
-                            <i class="fas fa-sign-out-alt"></i>ログアウト
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to user_path(current_user.id) do %>
-                            <i class="far fa-user"></i>マイページ
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to posts_path(posts: "recommend") do %>
-                            <i class="fas fa-crown">オススメ</i>
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to new_post_path do %>
-                            <i class="fab fa-monero"></i>Mone
-                        <% end %>
-                    </li>
-                <% else %>
-                    <li>
-                        <%= link_to new_user_registration_path do %>
-                            <i class="fas fa-user-plus"></i>新規登録
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to new_user_session_path do %>
-                            <i class="fas fa-sign-in-alt"></i>ログイン
-                        <% end %>
-                    </li>
-                <% end %>
-            </ul>
-        </nav>
-    </div>
+
+            <form class="navbar-nav form-inline justify-content-center">
+                <input id="form" type="form" placeholder="ユーザー検索" class="form-control">
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
+            </form>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <% if user_signed_in? %>
+                        <li class="nav-item">
+                            <%= link_to destroy_user_session_path, class: "nav-link", method: :delete do %>
+                                <i class="fas fa-sign-out-alt"></i>ログアウト
+                            <% end %>
+                        </li>
+
+                        <li class="nav-item">
+                            <%= link_to user_path(current_user.id), {class: "nav-link"} do %>
+                                <i class="far fa-user"></i>マイページ
+                            <% end %>
+                        </li>
+
+                        <li class="nav-item">
+                            <%= link_to posts_path(posts: "recommend"), {class: "nav-link"} do %>
+                                <i class="fas fa-crown">オススメ</i>
+                            <% end %>
+                        </li>
+
+                        <li class="nav-item">
+                            <%= link_to new_post_path, {class: "nav-link"} do %>
+                                <i class="fab fa-monero"></i>Mone
+                            <% end %>
+                        </li>
+                    
+                    <% else %>
+                        <li class="nav-item">
+                            <%= link_to new_user_registration_path, {class: "nav-link"} do %>
+                                <i class="fas fa-user-plus"></i>新規登録
+                            <% end %>
+                        </li>
+
+                        <li class="nav-item">
+                            <%= link_to new_user_session_path, {class: "nav-link"} do %>
+                                <i class="fas fa-sign-in-alt"></i>ログイン
+                            <% end %>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
