@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
     paginates_per 8
 
-    default_scope -> { order(created_at: :desc) }
+    # default_scope -> { order(created_at: :desc) }
     
     def favorited_by?(user)
         favorites.where(user_id: user.id).exists?
