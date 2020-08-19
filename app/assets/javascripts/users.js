@@ -18,15 +18,25 @@ $(document).on('turbolinks:load', function() {
     });
 });
 
+$(document).on('turbolinks: load', function(){
+    $("img").on(click, function(){
+        $("#modal").fadeIn(300);
+    });
+    $("img").on(click, function(){
+        $("#modal").fadeOut(300);
+    });
+});
+
+
 
 $(document).on('turbolinks: load', function(){
-    $('#form').on('keyup', function(e){
+    $(document).on('keyup', function(e){
         e.preventDefault();
         var input = $.trim($(this).val());
         $.ajax({
             url: '/users/search',
             type: 'GET',
-            data: {keyword: input},
+            data: ('keyword=' + input),
             processData: false,
             contentType: false,
             dataType: 'json'
