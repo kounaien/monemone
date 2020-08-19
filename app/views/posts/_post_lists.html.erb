@@ -19,8 +19,8 @@
                 <p><%= post.fee %>円</p>
             </div>
             <section>
-                <span>
-                    <%= render "favorite", post: post %>
+                <span id="favorite-<%= post.id %>" class="favorite">
+                    <%= render "posts/favorite", post: post %>
                 </span>
                 <span><%= post.post_comment.count %>件のコメント</span>
             </section>

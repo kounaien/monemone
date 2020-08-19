@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     before_action :correct_user, only: [:edit]
 
     def show
+        @post = Post.find(params[:id])
+        @post_comment = PostComment.new
         @posts = @user.posts.all
         if @posts.any?
             @count_sum = @user.posts.for_date_range(@user.posts.first.created_at, @user.posts.last.created_at).count_sum
@@ -29,10 +31,7 @@ class UsersController < ApplicationController
 
     def search
         @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
-        respond_to do |format|
-            format.html
-            format.json
-        end
+        render json: @users
     end
 
     private
