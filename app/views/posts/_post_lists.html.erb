@@ -20,7 +20,7 @@
             </div>
             <section>
                 <span id="favorite-<%= post.id %>" class="favorite">
-                    <%= render partial: "posts/favorite", { post: post } %>
+                    <%= render partial: "posts/favorite", locals: { post: post } %>
                 </span>
                 <span><%= post.post_comment.count %>件のコメント</span>
             </section>

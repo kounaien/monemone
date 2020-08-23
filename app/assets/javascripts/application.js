@@ -41,9 +41,3 @@ $(document).on('keyup', '#keyword', function(e){
 });
 // });
 
-
-$(document).on('turbolinks: load', function(){
-    $('#button').on('click', function(){
-        $('#hoge').css('color', 'red');
-    })
-});

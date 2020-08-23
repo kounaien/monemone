@@ -1,5 +1,6 @@
 <ul>
     <p><%= post.post_comment.count %>件のコメント</p>
+    
     <% if post.post_comment.any? %>
         <% post.post_comment.each do |post_comment| %>
             <li class="comment" id="post_comment-<%= post_comment.id%>">
