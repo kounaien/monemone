@@ -19,7 +19,7 @@
         </div>
 
         <div id="favorite-<%= post.id %>" class="favorite" >
-            <%= render "posts/favorite", post: post %>
+            <%= render partial: "posts/favorite", locals: { post: post } %>
         </div>
 
         <div class="block-content">
