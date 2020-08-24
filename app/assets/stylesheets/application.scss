@@ -79,8 +79,16 @@ footer{
 .form-user-style, .form-post-style{
     background-color: white;
     padding: 70px;
-    border: solid 2px white;
+    border: solid 2px gray;
     border-radius: 15px;
+}
+
+.actions{   
+    text-align: right;
+}   
+
+.field.row{
+    margin-bottom: 15px;
 }
 
 .origin-btn{
