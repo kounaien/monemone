@@ -7,8 +7,8 @@ class PostCommentsController < ApplicationController
     end
 
     def destroy
-        PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-        @post_comment = Post_comments.find_by(id: params[:id], user_id: current_user.id)
+        @post_comment = PostComment.find_by(id: params[:id], post_id: params[:post_id])
+        @post_comment.destroy
     end
 
     private

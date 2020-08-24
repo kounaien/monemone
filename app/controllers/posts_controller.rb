@@ -23,6 +23,7 @@ class PostsController < ApplicationController
             @posts = Post.where(user_id: @follow_users).or(Post.where(user_id: current_user)).page(params[:page]).order(created_at: :desc)
         elsif params[:posts] == "recommend"
             @posts = Post.where.not(user_id: current_user.id).page(params[:page]).order(created_at: :desc)
+            render :recommend
         else
             @posts = Post.page(params[:page]).order(created_at: :desc)
         end        

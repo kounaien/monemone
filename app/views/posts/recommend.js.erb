@@ -1,0 +1,2 @@
+$('#recommend_lists').append("<%= escape_javascript(render 'post_lists', posts: @posts) %>");
+$("#recommend_more").replaceWith("<%= escape_javascript(link_to_next_page(@posts, 'もっと見る', remote: true, id: 'recommend_more')) %>");

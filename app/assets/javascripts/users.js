@@ -1,7 +1,7 @@
 //= require Chart.min
 
 $(document).on('turbolinks:load', function() {
-    // $('#nav-guraph').on('click', function() {
+    $('#nav-tab').on('click', function() {
         var ctx = document.getElementById('myChart'); 
         var myChart = new Chart(ctx, {
         type: 'line',
@@ -16,7 +16,7 @@ $(document).on('turbolinks:load', function() {
             }]
         },
         });
-    // });
+    });
 });
 
 // $(document).on('turbolinks: load', function(){
