@@ -19,7 +19,7 @@
         </div>
 
         <div id="favorite-<%= post.id %>" class="favorite" >
-            <%= render "posts/favorite", post: post %>
+            <%= render partial: "posts/favorite", locals: { post: post } %>
         </div>
 
         <div class="block-content">
@@ -29,7 +29,7 @@
             </div>
 
             <div class="comment-list" id="comment-list">
-                <%= render 'post_comments/comment_list', post: post, post_comment: post_comment %>
+                <%= render partial: 'post_comments/comment_list', locals: { post: post } %>
             </div>
 
             <div class="action">

@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-8 offset-2">
+        <div id="recommend_lists">
+            <%= render 'users/users_posts', posts: @posts %>
+            <div class="more">
+                <%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'recommend_more' %>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -15,22 +15,31 @@
 }
 
 .edit-block{
-    background-color: white;
-    border: solid 1px gray;
-    border-radius:3px;
-     .block-sidebar{
-        padding: 15px;
-        text-align: center;
-        border-right: solid 1px gray;
+    .block-sidebar{
+        width: 20%;
+        border: solid 1px black;
+        background-color: white;
+        .nav-link{
+            font-size: 16px;
+            color: black;
+            padding-top: 12px;
+            width: 100%;
+            text-align: center;
+            &:hover{
+                cursor: pointer;
+            }
+            
+        }
+        .active{
+                border-left: 2px solid black;
+                font-weight: 600;
+        }
     }
-    .edit-bar{
-        padding: 15px;
-        .user{
-            margin-bottom: 10px;
-        }
-        .field{
-            margin-bottom: 20px;
-        }
+    .tab-content{
+        padding: 15px 20px 15px 20px;
+        border: solid 1px black;
+        border-left: none;
+        background-color: white;
     }
 }
 
@@ -61,4 +70,8 @@
     transform: translate(-50%, -50%);
     position: absolute;
     z-index: 3;
+}
+
+.red{
+    color: red;
 }

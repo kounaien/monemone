@@ -10,10 +10,10 @@
                         <%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'view_more' %>
                     </div>
                 <% else %>
-                    <h2>ここにフォローしたユーザの投稿が表示されます</h2>
+                    <h2 style="text-align: center;">ここにフォローしたユーザの投稿が表示されます</h2>
                 <% end %>
             <% else %>
-                    <h2>sign upでフォローしましょう</h2>
+                    <h2 style="text-align: center;">sign upでフォローしましょう</h2>
                     <%= render 'guest_post_lists', posts: @posts %>
             <% end %>      
         </div>

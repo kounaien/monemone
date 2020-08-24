@@ -6,7 +6,7 @@ class Post < ApplicationRecord
     
     attachment :image
 
-    paginates_per 8
+    paginates_per 9
 
     # default_scope -> { order(created_at: :desc) }
     

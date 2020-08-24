@@ -5,32 +5,40 @@
             <div class="my-page-header">
                 <div class="my-profile">
                     <p><%= attachment_image_tag @user, :profile_image, size: "80x80", fallback: "no_image.jpg", class: "rounded-image" %></p>
-                    <p><%= @user.name %></p>
+                    <span><%= @user.name %></span>
+                    <span class="mb-2"><%= @user.last_name %><%= @user.first_name %></span>
+                    <p><%= @user.website %></p>
                     <p><%= @user.self_introduction %></p>
                     <div class="setting-icon">
                         <% if @user.id == current_user.id %>
                             <%= link_to "",  edit_user_path(@user), class: "fas fa-cog" %>
                         <% end %>
                     </div>
-                    <span>
-                        <%= link_to user_followes_path(@user) do %>
-                        フォロー<%= @user.follower.count %>
-                        <% end %>
-                    </span>
-                    <span>
-                        <%= link_to user_followers_path(@user) do %>
-                        フォロワー<%= @user.followed.count %>
-                        <% end %>
-                    </span>
-                    <%= render 'relationships/follow_btn', user: @user %>
-                    </div>
-            </div>
 
+                    <div class="count">
+                        <span class="mr-4">
+                            posts<%= @user.posts.count %>
+                        </span>
+                        <span class="mr-4">
+                            <%= link_to user_followes_path(@user) do %>
+                            following<%= @user.follower.count %>
+                            <% end %>
+                        </span>
+                        <span>
+                            <%= link_to user_followers_path(@user) do %>
+                            followers<%= @user.followed.count %>
+                            <% end %>
+                        </span>
+                        <%= render 'relationships/follow_btn', user: @user %>
+                    </div>
+                </div>
+            </div>
+            
             <div class="my-content">
                 <nav>
                     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-post-tab" data-toggle="tab" href="#nav-post" role="tab" aria-controls="nav-post" aria-selected="true">投稿</a>
-                            <a class="nav-item nav-link" id="nav-guraph-tab" data-toggle="tab" href="#nav-guraph" role="tab" aria-controls="nav-guraph" aria-selected="false">グラフ</a>
+                            <a class="nav-item nav-link active" id="nav-post-tab" data-toggle="tab" href="#nav-post" role="tab" aria-controls="nav-post" aria-selected="true"><i class="fas fa-grip-horizontal"></i>投稿</a>
+                            <a class="nav-item nav-link" id="nav-guraph-tab" data-toggle="tab" href="#nav-guraph" role="tab" aria-controls="nav-guraph" aria-selected="false"><i class="fas fa-signal"></i>グラフ</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="myTabContent">

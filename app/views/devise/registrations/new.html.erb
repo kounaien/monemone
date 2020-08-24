@@ -2,34 +2,50 @@
   <div class="col-8 offset-2">
     <div class="form-user-style">
       <div class="form-header">
-        <h2>ユーザー登録</h2>
+        <h2>新規登録</h2>
       </div>
 
-        <div class="form-body">
+        <div class="form-body mt-5">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
 
-          <div class="field">
-            <%= f.label :メールアドレス, class: "text-color" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field row">
+            <div class="col-3 offset-1">
+              <%= f.label :メールアドレス, class: "text-color" %>
+            </div>
+            <div class="col-8">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :ユーザーネーム, class: "text-color" %><br />
-            <%= f.text_field :name %>
+          <div class="field row">
+            <div class="col-3 offset-1">
+                <%= f.label :ユーザーネーム, class: "text-color" %>
+            </div>
+            <div class="col-8">
+                <%= f.text_field :name, class: "form-control"  %>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :パスワード, class: "text-color" %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+          <div class="field row">
+            <div class="col-3 offset-1">
+              <%= f.label :パスワード, class: "text-color" %>
+            </div>
+            <div class="col-8">
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :パスワード確認, class: "text-color" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <div class="field row">
+            <div class="col-3 offset-1">
+              <%= f.label :パスワード確認, class: "text-color" %>
+            </div>
+            <div class="col-8">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+            </div>
           </div>
 
           <div class="actions">
@@ -37,7 +53,6 @@
           </div>
         <% end %>
 
-        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
