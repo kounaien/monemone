@@ -49,23 +49,37 @@
 header{
     background-color: white;
     border-bottom: solid 1px lightgray;
+    z-index: 49;
     #monemone{
         color: #03695f;
     }
-    a {
-        color: #03695f;
-    } 
     li{
         font-size: 16px;
     }
     .nav-link {
         color: rgba(17, 155, 70, 0.5);
     }
-    #form{
+    form{
         text-align: center;
+        padding-top: 5px;
+        #result{
+            overflow: visible;
+            height: 1px;
+            width: auto;
+            display: block;
+            li{
+                z-index: 50;
+                border: 1px solid gray;
+                border-radius: 5px;
+                background-color: white;
+            }
+        }
     }
 }
 
+.container.content{
+    z-index: 48;
+}
 
 
 footer{
