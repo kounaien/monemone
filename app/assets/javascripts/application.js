@@ -18,6 +18,33 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// $(document).on('turbolinks:load', function() {
+//     $(document).on('keyup', '#keyword', function(e){
+//         e.preventDefault();
+//         var input = $.trim($(this).val());
+//         $.ajax({
+//             url: '/users/search',
+//             type: 'GET',
+//             data: ('keyword=' + input),
+//             processData: false,
+//             contentType: false,
+//             dataType: 'json'
+//         })
+//         .done(function(data){
+//             $('#keyword').find('li').remove();
+//             $(data).each(function(i, user){
+//                 $('#keyword').popover({
+//                     placement: 'bottom',
+//                     title: 'result',
+//                     trigger: 'focus',
+//                     container: 'body', 
+//                     content: $('#keyword').append('<li>' + '<a href="/users/' + user.id + '">' + user.name + '</a>' + '</li>'),
+//                 });
+//             });
+//         });
+//     });
+// });
+
 $(document).on('turbolinks:load', function() {
     $(document).on('keyup', '#keyword', function(e){
         e.preventDefault();
@@ -32,12 +59,11 @@ $(document).on('turbolinks:load', function() {
             dataType: 'json'
         })
         .done(function(data){
+            $('#result').show();
             $('#result').find('li').remove();
             $(data).each(function(i, user){
-                $('#result').append('<li>' + user.name +'</li>')
+                $('#result').append('<li>' + '<a href="/users/' + user.id + '">' + user.name + '</a>' + '</li>')
             });
         })
     });
 });
-
-

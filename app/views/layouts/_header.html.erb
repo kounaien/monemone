@@ -12,8 +12,16 @@
             <% end %>
 
             <form class="navbar-nav form-inline justify-content-center">
-                <input id="keyword" type="form" placeholder="ユーザー検索" class="form-control">
-                <ul id="result"></ul>
+                <div>
+                <a tab-index="0" data-toggle="popover" data-placement="bottom" data-toggle="popover" title="Results">
+                    <input id="keyword" type="form" placeholder="ユーザー検索" class="form-control" data-placement="bottom">
+                </a>
+
+                <%# <div id="popover-content"> %>
+                    <%# <ul id="list-group custom-popover"></ul> %>
+                    <div id="result-list"><ul id="result"></ul></div>
+                <%# </div> %>
+                </div>
             </form>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
