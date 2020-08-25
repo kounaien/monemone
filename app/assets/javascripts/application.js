@@ -59,6 +59,7 @@ $(document).on('turbolinks:load', function() {
             dataType: 'json'
         })
         .done(function(data){
+            $('#result').show();
             $('#result').find('li').remove();
             $(data).each(function(i, user){
                 $('#result').append('<li>' + '<a href="/users/' + user.id + '">' + user.name + '</a>' + '</li>')
