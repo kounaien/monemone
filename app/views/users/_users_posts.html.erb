@@ -2,10 +2,22 @@
     <div class="row">
         <% posts.each do |post| %>
             <div class="col-4 image-posts mb-2">
-                <%= link_to post_path(post), remote: true do %>
+                <%= link_to post_path(post), remote: true, 'data-toggle': :'modal', 'data-target': :'#post-modal' do %>
                     <%= attachment_image_tag post, :image, :fill, 200, 200, format: "jpeg", fallback: "no_image.jpg" %>
                 <% end %>
             </div>
         <% end %>
     </div>
 <% end %>
+
+<div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modlaTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
