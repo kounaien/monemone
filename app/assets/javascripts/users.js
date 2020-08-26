@@ -18,12 +18,3 @@ $(document).on('turbolinks:load', function() {
         });
     });
 });
-
-// $(document).on('turbolinks: load', function(){
-//     $("img").on(click, function(){
-//         $("#modal").fadeIn(300);
-//     });
-//     $("img").on(click, function(){
-//         $("#modal").fadeOut(300);
-//     });
-// });
