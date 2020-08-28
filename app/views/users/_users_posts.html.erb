@@ -2,6 +2,7 @@
     <div class="row">
         <% posts.each do |post| %>
             <div class="col-4 image-posts mb-2">
+                <%# <div class="transparent-box"></div> %>
                 <%= link_to post_path(post), remote: true, 'data-toggle': :'modal', 'data-target': :'#post-modal' do %>
                     <%= attachment_image_tag post, :image, :fill, 200, 200, format: "jpeg", fallback: "no_image.jpg" %>
                 <% end %>
