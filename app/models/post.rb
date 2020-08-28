@@ -14,8 +14,6 @@ class Post < ApplicationRecord
         favorites.where(user_id: user.id).exists?
     end
 
-    scope :data_format, -> {select("DATE_FORMAT('created_at', '%Y年%m月%d日') as data, fee")}
-
     scope  :for_date_range, -> (start_date, end_date) do
         where(created_at: start_date.beginning_of_day..end_date.end_of_day)
     end
