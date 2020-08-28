@@ -1,7 +1,5 @@
 {
   "name": "monemone",
-  "private": true,
-  "dependencies": {
-  }
+  "private": true
 }
 
