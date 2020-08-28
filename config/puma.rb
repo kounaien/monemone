@@ -44,7 +44,7 @@ if Rails.env.production?
     state_path File.join(rails_root, 'tmp', 'pid', 'pids', 'puma.state')
     stdout_redirect(
         File.join(rails_root, 'log', 'puma.log'),
-        File.join(rails_root, 'log', 'puma-error.log')
+        File.join(rails_root, 'log', 'puma-error.log'),
         true
     )
 
