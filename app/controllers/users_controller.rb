@@ -8,8 +8,8 @@ class UsersController < ApplicationController
         @posts = @user.posts.all
         if @posts.any?
             @count_sum = @user.posts.for_date_range(@user.posts.first.created_at, @user.posts.last.created_at).count_sum
-            @count_sum.transform_keys { |key| key.to_s }
-            
+            @count_sum = @count_sum.transform_keys { |key| key.to_s }
+
             total = 0
             @count_sum.each do |key, value|
                 total += value
