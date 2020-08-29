@@ -3,7 +3,6 @@ class UsersController < ApplicationController
     before_action :correct_user, only: [:edit]
 
     def show
-        @post = Post.find(params[:id])
         @post_comment = PostComment.new
         @posts = @user.posts.all
         if @posts.any?

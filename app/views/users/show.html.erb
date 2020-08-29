@@ -43,7 +43,9 @@
                 </nav>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="nav-post" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <%= render 'users/users_posts', posts: @posts %>
+                        <% if @posts.any? %>
+                            <%= render 'users/users_posts', posts: @posts %>
+                        <% end %>
                     </div>
 
                     <div class="tab-pane fade" id="nav-guraph" role="tabpanel" aria-labelledby="nav-guraph-tab">
