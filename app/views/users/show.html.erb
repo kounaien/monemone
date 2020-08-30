@@ -17,16 +17,16 @@
 
                     <div class="count">
                         <span class="mr-4">
-                            posts<%= @user.posts.count %>
+                            合計金額<%= @user.posts.sum(:fee) %>
                         </span>
                         <span class="mr-4">
                             <%= link_to user_followes_path(@user) do %>
-                            following<%= @user.follower.count %>
+                                フォロー<%= @user.follower.count %>
                             <% end %>
                         </span>
                         <span>
                             <%= link_to user_followers_path(@user) do %>
-                            followers<%= @user.followed.count %>
+                                フォロワー<%= @user.followed.count %>
                             <% end %>
                         </span>
                         <%= render 'relationships/follow_btn', user: @user %>
