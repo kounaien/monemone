@@ -13,14 +13,11 @@
 
             <form class="navbar-nav form-inline justify-content-center">
                 <div>
-                <a tab-index="0" data-toggle="popover" data-placement="bottom" data-toggle="popover" title="Results">
-                    <input id="keyword" type="form" placeholder="ユーザー検索" class="form-control" data-placement="bottom">
-                </a>
+                    <a tab-index="0" data-toggle="popover" data-placement="bottom" data-toggle="popover" title="Results">
+                        <input id="keyword" type="form" placeholder="ユーザー検索" class="form-control" data-placement="bottom">
+                    </a>
 
-                <%# <div id="popover-content"> %>
-                    <%# <ul id="list-group custom-popover"></ul> %>
                     <div id="result-list"><ul id="result"></ul></div>
-                <%# </div> %>
                 </div>
             </form>
 
@@ -51,7 +48,7 @@
 
                         <li class="nav-item">
                             <%= link_to new_post_path, {class: "nav-link"} do %>
-                                <i class="fas fa-plus"></i>Mone
+                                <i class="fas fa-plus fa-lg"></i>Mone
                             <% end %>
                         </li>
                     
