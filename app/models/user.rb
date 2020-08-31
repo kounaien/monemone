@@ -16,6 +16,13 @@ class User < ApplicationRecord
          has_many :following_user, through: :follower, source: :followed #名前が違うrelationshipを参照している
          has_many :follower_user, through: :followed, source: :follower #テーブル作成する際にforeign_key使用
 
+         validates :self_introduction, length: { minimum: 5, maximum: 150 }
+         validates :name, presence: true, length: { maximum: 30 }
+         validates :first_name, length: { maximum: 30 }
+         validates :last_name, length: { maximum: 30 }
+         VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+         validates :email, presence: true, uniqueness: true, length: { maximum: 40 }, format: { with: VALID_EMAIL_REGEX }
+
          def follow(user_id)
           follower.create(followed_id: user_id)
          end

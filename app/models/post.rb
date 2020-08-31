@@ -8,6 +8,11 @@ class Post < ApplicationRecord
 
     paginates_per 9
 
+    validates :fee, presence: true, numericality: { only_integer: true }, length: { maximum: 12 }
+    validates :caption, presence: true, length: { minimum: 5, maximum: 200 }
+
+    
+
     # default_scope -> { order(created_at: :desc) }
     
     def favorited_by?(user)

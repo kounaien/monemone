@@ -1,43 +1,125 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="row col-9 offset-2 edit-block">
+  <div class="block-sidebar">
+      <div class="nav nav-tabs tabs-left" id="mytab" role="tablist">
+          <li class="nav-item"><a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile-edit" role="tab" aria-controls="profile" aria-selected="true">プロフィール</a></li>
+          <li class="nav-item"><a class="nav-link" id="pass-tab" data-toggle="tab" href="#change-pass" role="tab" aria-controls="change-pass" aria-selected="false">プライベート</a></li>
+      </div>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <div class="col-9 tab-content" id="myTabContent">
+    <%= render 'layouts/error_messages', model: @user %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    <div class="tab-pane fade show active" id="profile-edit" role="tabpanel" aria-labelledby="profile-tab">
+      <%= form_with(model: @user, local: true) do |f| %>
+        <div class="form group row mb-2">
+          <div class="col-3 offset-1">
+            <%= attachment_image_tag @user, :profile_image, size:"60x60", fallback:"no_image.jpg", class: "rounded-image" %>
+          </div>
+        </div>
+
+        <div class="form group row mb-2">
+          <div class="col-3 offset-1">
+            <%= f.label :"写真を更新" %>
+          </div>
+          <div class="col-8">
+            <%= f.attachment_field :profile_image %>
+          </div>
+        </div>
+
+        <div class="form group row mb-2">
+          <div class="col-3 offset-1">
+            <%= f.label :"ユーザー名" %>
+          </div>
+          <div class="col-8">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form group row mb-2">
+          <div class="col-3 offset-1">
+            <%= f.label :"苗字" %>
+          </div>
+          <div class="col-8">
+            <%= f.text_field :last_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form group row mb-2">
+          <div class="col-3 offset-1">
+            <%= f.label :"名前" %>
+          </div>
+          <div class="col-8">
+            <%= f.text_field :first_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form group row mb-2">
+          <div class="col-3 offset-1">
+            <%= f.label :"リンク" %>
+          </div>
+          <div class="col-8">
+            <%= f.text_field :website, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form group row mb-2">
+          <div class="col-3 offset-1">
+            <%= f.label :"自己紹介" %>
+          </div>
+          <div class="col-8">
+            <%= f.text_area :self_introduction, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form group row mb-2">
+          <div class="col-3 offset-1"></div>
+          <div class="col-8">
+            <%= f.submit "更新", class: "origin-btn" %>
+          </div>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="tab-pane fade" id="change-pass" role="tabpanel" aria-labelledby="pass-tab">
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <div class="field">
+            <%= f.label :"メールアドレス" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="field">
+            <% if @minimum_password_length %>
+              <br />
+              <p><%= @minimum_password_length %>文字以上の半角英数字</p>
+            <% end %>
+            <%= f.label :"パスワード" %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :"パスワード確認" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :"現在のパスワード" %><br />
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Update", class: "origin-btn" %>
+          </div>
+        <% end %>
+
+      <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当にアカウント削除しますか？" }, method: :delete, class: "btn btn-danger" %>
+
+        <%= link_to "Back", :back, class: "btn btn-secondary mt-2" %>
+    </div>
   </div>
+</div> 
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

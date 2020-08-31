@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      post_comment: コメント
+      user: ユーザ
+    attributes:
+      post:
+        fee: 金額
+        caption: 説明
+      post_comment:
+        comment: コメント
+      user:
+        email: メールアドレス
+        password: パスワード
+        self_introduction: プロフィール
+        website: リンク
+        first_name: 名前
+        last_name: 苗字
+        name: ユーザ名
+        current_password: 現在のパスワード

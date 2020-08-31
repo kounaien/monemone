@@ -4,7 +4,10 @@ class UsersController < ApplicationController
 
     def show
         @post_comment = PostComment.new
-        @posts = @user.posts.all
+        # @posts = Post.includes(:user).references(:user).where(user_id: @user.id)
+        @posts = Post.eager_load(:user).where(user_id: @user.id)
+
+
         if @posts.any?
             @count_sum = @user.posts.for_date_range(@user.posts.first.created_at, @user.posts.last.created_at).count_sum
             @count_sum = @count_sum.transform_keys { |key| key.to_s }

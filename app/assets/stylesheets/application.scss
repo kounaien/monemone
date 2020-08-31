@@ -49,8 +49,8 @@
 header{
     background-color: white;
     border-bottom: solid 1px lightgray;
-    position: relative;
-    z-index: 5;
+    // position: relative;
+    // z-index: 5;
     #monemone{
         color: #03695f;
     }
@@ -70,7 +70,9 @@ header{
                 display: none;
                 border: 1px solid gray;                
                 border-radius: 5px;
-                background-color: white;                
+                background-color: white;
+                position: relative;
+                z-index: 11;                
             }
             li{            
                 height: 30px;
