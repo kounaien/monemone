@@ -30,8 +30,9 @@ class UsersController < ApplicationController
             flash[:success] = "更新完了"
             redirect_to user_path(@user)
         else
+            @user = User.find(params[:id])
             flash[:danger] = "更新できませんでした"
-            render 'edit'
+            redirect_back(fallback_location: user_path(@user.id))
         end
     end
 
@@ -53,6 +54,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:profile_image, :name, :self_introduction, :last_name, :first_name)
+        params.require(:user).permit(:profile_image, :name, :self_introduction, :last_name, :first_name, :website)
     end
 end

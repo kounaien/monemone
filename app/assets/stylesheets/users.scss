@@ -7,6 +7,13 @@
     border-bottom: solid 1px gray;
     .my-profile{
         text-align: center;
+        .intro-size{
+            width: 70%;
+            margin: 0 auto;
+        }
+        a:hover {
+            color: blue;
+        }
     }
 }
 

@@ -6,9 +6,9 @@
                 <div class="my-profile">
                     <p><%= attachment_image_tag @user, :profile_image, size: "80x80", fallback: "no_image.jpg", class: "rounded-image" %></p>
                     <span><%= @user.name %></span>
-                    <span class="mb-2"><%= @user.last_name %><%= @user.first_name %></span>
-                    <p><%= @user.website %></p>
-                    <p><%= @user.self_introduction %></p>
+                    <span><%= @user.last_name %><%= @user.first_name %></span>
+                    <p class="mt-4"><a href="<%= @user.website %>"><%= @user.website %></a></p>
+                    <p class="intro-size"><%= @user.self_introduction %></p>
                     <div class="setting-icon">
                         <% if @user.id == current_user.id %>
                             <%= link_to "",  edit_user_registration_path(@user), class: "fas fa-cog" %>
