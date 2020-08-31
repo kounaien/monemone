@@ -11,13 +11,13 @@
                     <p><%= @user.self_introduction %></p>
                     <div class="setting-icon">
                         <% if @user.id == current_user.id %>
-                            <%= link_to "",  edit_user_path(@user), class: "fas fa-cog" %>
+                            <%= link_to "",  edit_user_registration_path(@user), class: "fas fa-cog" %>
                         <% end %>
                     </div>
 
                     <div class="count">
                         <span class="mr-4">
-                            合計金額<%= @user.posts.sum(:fee) %>
+                            合計金額<%= @user.posts.sum(:fee) %>円
                         </span>
                         <span class="mr-4">
                             <%= link_to user_followes_path(@user) do %>

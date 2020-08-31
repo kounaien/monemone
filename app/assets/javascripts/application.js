@@ -18,38 +18,11 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-// $(document).on('turbolinks:load', function() {
-//     $(document).on('keyup', '#keyword', function(e){
-//         e.preventDefault();
-//         var input = $.trim($(this).val());
-//         $.ajax({
-//             url: '/users/search',
-//             type: 'GET',
-//             data: ('keyword=' + input),
-//             processData: false,
-//             contentType: false,
-//             dataType: 'json'
-//         })
-//         .done(function(data){
-//             $('#keyword').find('li').remove();
-//             $(data).each(function(i, user){
-//                 $('#keyword').popover({
-//                     placement: 'bottom',
-//                     title: 'result',
-//                     trigger: 'focus',
-//                     container: 'body', 
-//                     content: $('#keyword').append('<li>' + '<a href="/users/' + user.id + '">' + user.name + '</a>' + '</li>'),
-//                 });
-//             });
-//         });
-//     });
-// });
-
 $(document).on('turbolinks:load', function() {
     $(document).on('keyup', '#keyword', function(e){
         e.preventDefault();
         var input = $.trim($(this).val());
-
+        
         $.ajax({
             url: '/users/search',
             type: 'GET',
@@ -64,6 +37,18 @@ $(document).on('turbolinks:load', function() {
             $(data).each(function(i, user){
                 $('#result').append('<li>' + '<a href="/users/' + user.id + '">' + user.name + '</a>' + '</li>')
             });
+            var count = $('#keyword').val().length;
+            if ( count == 0 ) {
+                $('#result').find('li').remove();
+                $('#result').css('display', 'none')
+            }
         })
     });
 });
+
+$(document).on('turbolinks:load', function(){
+    $(document).on('click', function(){
+        $('#result').find('li').remove();
+        $('#result').css('display', 'none')
+    })
+})

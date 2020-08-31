@@ -12,7 +12,6 @@ class PostsController < ApplicationController
             flash[:success] = "投稿完了"
             redirect_to @post
         else
-            flash[:danger] = "投稿できません"
             render 'new'
         end
     end
